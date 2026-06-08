@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Showcase | Hasnat Sabbir</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="title" content="Hasnat Sabbir | Portfolio Showcase">
+  <meta name="description" content="A premium showcase of graphic design projects by Hasnat Sabbir, including posters, banners, branding packages, and social media designs.">
+  <meta name="keywords" content="Graphic Design Portfolio, Hasnat Sabbir, Poster Design, Social Media Art, Branding, Bangladesh, Port City International University">
+  <meta name="author" content="Md. Hasnat Sabbir Biplob">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/optimized/hasnat_sabbir.webp">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#f0f5ff',
+              100: '#e0ebff',
+              500: '#2563EB', // Royal Blue
+              600: '#1d4ed8',
+            },
+            secondary: {
+              500: '#7C3AED', // Deep Violet
+              600: '#6d28d9',
+            },
+            accent: {
+              500: '#06B6D4', // Teal
+              600: '#0891b2',
+            },
+            dark: {
+              900: '#0B0F19', // Deep dark
+              800: '#111827',
+              700: '#1F2937',
+              600: '#374151',
+            },
+            light: {
+              900: '#F8FAFC',
+              800: '#F1F5F9',
+              700: '#E2E8F0',
+            }
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          animation: {
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-15px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0B0F19;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1F2937;
+      border-radius: 4px;
+      border: 2px solid #0B0F19;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #2563EB;
+    }
+
+    /* Glassmorphism Classes */
+    .glass-nav {
+      background: rgba(11, 15, 25, 0.5);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .glass-card {
+      background: rgba(17, 24, 39, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    }
+    .glass-filter {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+    }
+
+    /* Gradients */
+    .text-glow-gradient {
+      background: linear-gradient(135deg, #60A5FA 0%, #a78bfa 50%, #22d3ee 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .btn-gradient {
+      background: linear-gradient(90deg, #2563EB 0%, #7C3AED 100%);
+    }
+    .btn-gradient:hover {
+      background: linear-gradient(90deg, #1d4ed8 0%, #6d28d9 100%);
+      box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+    }
+
+    /* Masonry item avoid-break */
+    .masonry-item {
+      break-inside: avoid;
+    }
+
+    /* Filter animations */
+    .gallery-card {
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .gallery-card.hidden-filter {
+      opacity: 0;
+      transform: scale(0.92);
+      pointer-events: none;
+      position: absolute;
+      visibility: hidden;
+      width: 0;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+
+    /* Lightbox smooth transition */
+    .lightbox-img-transition {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+    }
+  </style>
+</head>
+<body class="bg-dark-900 text-slate-100 font-sans selection:bg-primary-500 selection:text-white overflow-x-hidden antialiased">
+
+  <!-- Ambient Glow Background -->
+  <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+    <div class="absolute top-[-10%] left-[20%] w-[60vw] h-[60vw] rounded-full bg-secondary-500/5 blur-[120px] animate-pulse-slow"></div>
+    <div class="absolute top-[40%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-primary-500/5 blur-[130px] animate-pulse-slow" style="animation-delay: 2s;"></div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 border-b border-transparent">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 group relative z-50">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-primary-500 to-secondary-500 flex items-center justify-center font-bold text-lg text-white shadow-lg shadow-primary-500/20 group-hover:scale-105 transition-all duration-300">
+          H
+        </div>
+        <span class="font-extrabold text-xl tracking-tight text-white group-hover:text-primary-500 transition-colors">
+          Hasnat <span class="text-primary-500 font-light group-hover:text-white transition-colors">Sabbir</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="font-medium text-sm text-slate-300 hover:text-primary-500 transition-colors">Home</a>
+        <a href="portfolio.html" class="font-medium text-sm text-primary-500 hover:text-white transition-colors">Portfolio</a>
+        <a href="index.html#about" class="font-medium text-sm text-slate-300 hover:text-primary-500 transition-colors">About Me</a>
+        <a href="index.html#contact" class="font-medium text-sm text-slate-300 hover:text-primary-500 transition-colors">Contact Me</a>
+      </nav>
+
+      <!-- CTA Action Button -->
+      <div class="hidden md:flex items-center">
+        <a href="index.html#contact" class="btn-gradient px-6 py-2.5 rounded-xl font-semibold text-xs tracking-wider uppercase text-white shadow-lg transition-all duration-300">
+          Hire Me
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" class="md:hidden relative z-50 text-slate-300 hover:text-white focus:outline-none" aria-label="Toggle Menu">
+        <i data-lucide="menu" id="menu-icon" class="w-6 h-6 transition-transform"></i>
+        <i data-lucide="x" id="close-icon" class="w-6 h-6 hidden transition-transform"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Slide-Down Menu Overlay -->
+    <div id="mobile-menu" class="hidden fixed inset-0 w-full h-screen bg-dark-900/98 backdrop-blur-xl z-40 flex flex-col justify-center items-center gap-8 transition-all duration-300">
+      <nav class="flex flex-col items-center gap-6 text-center">
+        <a href="index.html" class="mobile-nav-link text-2xl font-semibold text-slate-200 hover:text-primary-500 transition-colors">Home</a>
+        <a href="portfolio.html" class="mobile-nav-link text-2xl font-bold text-primary-500">Portfolio</a>
+        <a href="index.html#about" class="mobile-nav-link text-2xl font-semibold text-slate-200 hover:text-primary-500 transition-colors">About Me</a>
+        <a href="index.html#contact" class="mobile-nav-link text-2xl font-semibold text-slate-200 hover:text-primary-500 transition-colors">Contact Me</a>
+      </nav>
+      <a href="index.html#contact" class="mobile-nav-link btn-gradient px-8 py-3 rounded-xl font-bold text-sm tracking-wider uppercase text-white shadow-lg mt-4">
+        Hire Me
+      </a>
+    </div>
+  </header>
+
+  <!-- PORTFOLIO HERO -->
+  <section class="relative pt-36 pb-16 overflow-hidden z-10">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 text-center">
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-500 font-semibold text-xs uppercase tracking-wider mb-6">
+        Creative Archive
+      </span>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6">
+        Portfolio <span class="text-glow-gradient">Showcase</span>
+      </h1>
+      <p class="text-base sm:text-lg text-slate-400 font-body leading-relaxed max-w-2xl mx-auto">
+        A comprehensive curation of posters, branding packages, social media campaigns, event promotions, and creative visual communication assets designed by Hasnat Sabbir.
+      </p>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO FILTER CONTROLS -->
+  <section class="pb-10 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <!-- Filter Button Row -->
+      <div class="glass-filter rounded-2xl md:rounded-full p-2 flex flex-wrap justify-center items-center gap-2 max-w-4xl mx-auto border border-white/5">
+        <button data-filter="all" class="filter-btn px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-primary-500 text-white shadow-md">
+          All Projects
+        </button>
+        <button data-filter="Poster Design" class="filter-btn px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 text-slate-400 hover:text-white">
+          Poster Design
+        </button>
+        <button data-filter="Social Media" class="filter-btn px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 text-slate-400 hover:text-white">
+          Social Media
+        </button>
+        <button data-filter="Branding" class="filter-btn px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 text-slate-400 hover:text-white">
+          Branding
+        </button>
+        <button data-filter="Event Promotion" class="filter-btn px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 text-slate-400 hover:text-white">
+          Event Promotion
+        </button>
+        <button data-filter="Marketing Graphics" class="filter-btn px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 text-slate-400 hover:text-white">
+          Marketing Graphics
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO GALLERY (Masonry Grid) -->
+  <section class="pb-32 relative z-10 min-h-[500px]">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <!-- Masonry column layout -->
+      <div id="gallery-container" class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+        <!-- Renders dynamically from projectsData -->
+      </div>
+      
+      <!-- Empty state -->
+      <div id="empty-state" class="hidden text-center py-20">
+        <i data-lucide="folder-open" class="w-12 h-12 text-slate-600 mx-auto mb-4"></i>
+        <h4 class="text-lg font-bold text-slate-400">No projects found in this category.</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX PREVIEW MODAL -->
+  <div id="lightbox-modal" class="hidden fixed inset-0 z-50 bg-slate-950/98 backdrop-blur-md flex flex-col md:flex-row justify-between items-center p-0 transition-opacity duration-300 opacity-0">
+    <!-- Close trigger background click -->
+    <div class="absolute inset-0 z-10" id="lightbox-bg-click"></div>
+    
+    <!-- Left panel: Media viewer -->
+    <div class="w-full md:w-3/4 h-3/4 md:h-full flex items-center justify-center p-6 md:p-12 relative z-20">
+      
+      <!-- Close button on top-right of image on small screen, top-left on big screen -->
+      <button id="lightbox-close" class="absolute top-6 right-6 md:right-auto md:left-6 z-30 w-12 h-12 rounded-xl bg-slate-900/60 hover:bg-slate-900 border border-white/10 flex items-center justify-center text-slate-300 hover:text-white shadow-xl transition-all" aria-label="Close Lightbox">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <!-- Navigation Arrows -->
+      <button id="lightbox-prev" class="absolute left-4 z-30 w-12 h-12 rounded-xl bg-slate-900/40 hover:bg-slate-900/80 border border-white/10 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95" aria-label="Previous">
+        <i data-lucide="chevron-left" class="w-6 h-6"></i>
+      </button>
+      
+      <button id="lightbox-next" class="absolute right-4 z-30 w-12 h-12 rounded-xl bg-slate-900/40 hover:bg-slate-900/80 border border-white/10 flex items-center justify-center text-slate-300 hover:text-white transition-all active:scale-95" aria-label="Next">
+        <i data-lucide="chevron-right" class="w-6 h-6"></i>
+      </button>
+
+      <!-- The Image -->
+      <div class="max-w-full max-h-full overflow-hidden flex items-center justify-center relative">
+        <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[75vh] md:max-h-[85vh] object-contain rounded-2xl shadow-2xl border border-white/10 lightbox-img-transition">
+      </div>
+    </div>
+
+    <!-- Right panel: Details sidebar (Slides in on desktop, fixed height bottom sheet on mobile) -->
+    <div class="w-full md:w-1/4 h-1/4 md:h-full bg-slate-900 border-t md:border-t-0 md:border-l border-white/5 p-6 md:p-8 flex flex-col justify-between overflow-y-auto relative z-20 shadow-2xl">
+      <div class="space-y-4">
+        <div class="flex items-center justify-between">
+          <span id="lightbox-category" class="text-[10px] font-bold uppercase tracking-widest text-primary-500 bg-primary-500/10 px-2.5 py-1 rounded-md">Category</span>
+          <span id="lightbox-index" class="text-xs text-slate-500 font-semibold">1 / 47</span>
+        </div>
+        <h3 id="lightbox-title" class="text-xl md:text-2xl font-extrabold text-white leading-tight">Project Title</h3>
+        <p id="lightbox-desc" class="text-sm text-slate-400 font-body leading-relaxed pt-2 border-t border-slate-800">
+          Detailed project description goes here.
+        </p>
+      </div>
+
+      <div class="pt-6 md:pt-0 mt-6 md:mt-0 flex flex-col gap-3">
+        <a href="index.html#contact" id="lightbox-cta-btn" class="btn-gradient w-full py-3.5 rounded-xl font-bold text-xs tracking-wider uppercase text-white shadow-lg text-center">
+          Inquire About This Design
+        </a>
+        <p class="text-[10px] text-slate-500 font-body text-center">
+          Tip: Use <kbd class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">←</kbd> and <kbd class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">→</kbd> arrow keys to navigate.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PORTFOLIO CTA -->
+  <section class="py-24 relative overflow-hidden z-10 border-t border-slate-800/30 bg-slate-950/20">
+    <!-- Ambient circle background -->
+    <div class="absolute w-[500px] h-[500px] rounded-full bg-primary-500/5 blur-[100px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+    
+    <div class="max-w-5xl mx-auto px-6 md:px-12 text-center relative z-10">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-6">
+        Let's Create Something <br class="hidden sm:block">
+        <span class="text-glow-gradient">Amazing Together</span>
+      </h2>
+      <p class="text-slate-400 font-body text-base max-w-xl mx-auto mb-10">
+        Looking for striking posters, a cohesive event visual branding, or high-converting social media marketing materials? Let's turn your vision into pixel-perfect reality.
+      </p>
+      <div class="flex flex-wrap justify-center items-center gap-4">
+        <a href="index.html#contact" class="btn-gradient px-8 py-4 rounded-xl font-semibold text-sm tracking-wide text-white shadow-lg flex items-center gap-2">
+          Contact Me <i data-lucide="send" class="w-4 h-4"></i>
+        </a>
+        <a href="index.html" class="px-8 py-4 rounded-xl border border-slate-700 bg-slate-800/20 text-slate-300 hover:text-white hover:border-slate-500 transition-all font-semibold text-sm tracking-wide flex items-center gap-2">
+          Back To Home
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark-900 border-t border-slate-800/80 pt-16 pb-8 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="grid md:grid-cols-12 gap-12 pb-12 border-b border-slate-800">
+        <!-- Logo Column -->
+        <div class="md:col-span-5 space-y-6">
+          <a href="index.html" class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-primary-500 to-secondary-500 flex items-center justify-center font-bold text-lg text-white shadow-lg shadow-primary-500/20">
+              H
+            </div>
+            <span class="font-extrabold text-xl tracking-tight text-white">
+              Hasnat <span class="text-primary-500 font-light">Sabbir</span>
+            </span>
+          </a>
+          <p class="text-sm text-slate-400 font-body leading-relaxed max-w-sm">
+            Creative Graphic Designer based in Bangladesh. Fusing structural logic with design theories to produce highly professional and inspiring visual materials.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="md:col-span-3 space-y-4">
+          <h5 class="text-xs font-bold text-white uppercase tracking-widest">Quick Links</h5>
+          <ul class="space-y-2.5 text-sm font-body">
+            <li><a href="index.html" class="text-slate-400 hover:text-primary-500 transition-colors">Home</a></li>
+            <li><a href="portfolio.html" class="text-slate-400 hover:text-primary-500 transition-colors">Portfolio</a></li>
+            <li><a href="index.html#about" class="text-slate-400 hover:text-primary-500 transition-colors">About Me</a></li>
+            <li><a href="index.html#contact" class="text-slate-400 hover:text-primary-500 transition-colors">Contact Me</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Media links -->
+        <div class="md:col-span-4 space-y-4">
+          <h5 class="text-xs font-bold text-white uppercase tracking-widest">Social Channels</h5>
+          <div class="flex items-center gap-4">
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com/in/hasnatsabbirr" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-slate-800/80 hover:bg-primary-500 hover:text-white border border-slate-700 flex items-center justify-center text-slate-300 transition-all duration-300" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin w-5 h-5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <!-- Email -->
+            <a href="mailto:hasnatsabbir26@gmail.com" class="w-10 h-10 rounded-xl bg-slate-800/80 hover:bg-secondary-500 hover:text-white border border-slate-700 flex items-center justify-center text-slate-300 transition-all duration-300" aria-label="Email">
+              <i data-lucide="mail" class="w-5 h-5"></i>
+            </a>
+            <!-- Phone -->
+            <a href="tel:01810291297" class="w-10 h-10 rounded-xl bg-slate-800/80 hover:bg-accent-500 hover:text-white border border-slate-700 flex items-center justify-center text-slate-300 transition-all duration-300" aria-label="Phone">
+              <i data-lucide="phone" class="w-5 h-5"></i>
+            </a>
+          </div>
+          <p class="text-xs text-slate-500 font-body">Available for remote and freelance work internationally.</p>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="flex flex-col sm:flex-row justify-between items-center pt-8 gap-4">
+        <p class="text-xs text-slate-500 font-body text-center sm:text-left">
+          &copy; <span id="current-year">2026</span> Hasnat Sabbir. All rights reserved.
+        </p>
+        <p class="text-xs text-slate-500 font-body text-center sm:text-right">
+          Created By <a href="https://www.linkedin.com/in/sma-rashik/" target="_blank" rel="noopener noreferrer" class="text-primary-500 hover:text-white font-bold transition-colors">S M ABDUL RASHIK</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button id="back-to-top" class="fixed bottom-8 right-8 z-40 w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white hover:border-primary-500 hover:shadow-lg shadow-black/30 hover:shadow-primary-500/20 translate-y-20 opacity-0 transition-all duration-300">
+    <i data-lucide="arrow-up" class="w-5 h-5"></i>
+  </button>
+
+  <!-- PROJECTS DATA DATABASE -->
+  <script src="assets/js/projects.js"></script>
+
+  <!-- GALLERY FILTERING & LIGHTBOX SCRIPT -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Initialize Lucide Icons
+      lucide.createIcons();
+
+      // Current Year copyright
+      document.getElementById("current-year").textContent = new Date().getFullYear();
+
+      // STICKY HEADER & SCROLL BEHAVIOR
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add("glass-nav", "shadow-xl", "py-4", "border-slate-800/40");
+          navbar.classList.remove("py-6", "border-transparent");
+        } else {
+          navbar.classList.remove("glass-nav", "shadow-xl", "py-4", "border-slate-800/40");
+          navbar.classList.add("py-6", "border-transparent");
+        }
+      });
+
+      // MOBILE NAVIGATION MENU
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const menuIcon = document.getElementById("menu-icon");
+      const closeIcon = document.getElementById("close-icon");
+      const mobileLinks = document.querySelectorAll(".mobile-nav-link");
+
+      function toggleMobileMenu() {
+        mobileMenu.classList.toggle("hidden");
+        menuIcon.classList.toggle("hidden");
+        closeIcon.classList.toggle("hidden");
+        document.body.classList.toggle("overflow-hidden");
+      }
+
+      mobileMenuBtn.addEventListener("click", toggleMobileMenu);
+
+      mobileLinks.forEach(link => {
+        link.addEventListener("click", () => {
+          if (!mobileMenu.classList.contains("hidden")) {
+            toggleMobileMenu();
+          }
+        });
+      });
+
+      // BACK TO TOP
+      const backToTopBtn = document.getElementById("back-to-top");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 400) {
+          backToTopBtn.classList.remove("translate-y-20", "opacity-0");
+        } else {
+          backToTopBtn.classList.add("translate-y-20", "opacity-0");
+        }
+      });
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // GALLERY VARIABLES & SETUP
+      const galleryContainer = document.getElementById("gallery-container");
+      const emptyState = document.getElementById("empty-state");
+      let activeFilter = "all";
+      let filteredProjects = [];
+      let currentLightboxIndex = 0;
+
+      // Render all projects dynamically
+      if (typeof projectsData !== 'undefined' && projectsData.length > 0) {
+        filteredProjects = [...projectsData];
+        renderGallery(projectsData);
+      } else {
+        emptyState.classList.remove("hidden");
+      }
+
+      function renderGallery(items) {
+        galleryContainer.innerHTML = "";
+        
+        if (items.length === 0) {
+          emptyState.classList.remove("hidden");
+          return;
+        }
+        emptyState.classList.add("hidden");
+
+        items.forEach((project, idx) => {
+          // Create the gallery card node
+          const card = document.createElement("div");
+          card.className = "gallery-card masonry-item glass-card rounded-2xl overflow-hidden hover:-translate-y-1.5 hover:border-primary-500/30 transition-all duration-300 group cursor-pointer relative";
+          card.setAttribute("data-title", project.title);
+          card.setAttribute("data-category", project.category);
+          
+          card.innerHTML = `
+            <div class="relative w-full overflow-hidden bg-slate-900">
+              <img src="${project.image}" alt="${project.title}" class="w-full h-auto object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out" loading="lazy">
+              <!-- Overlay hover zoom button -->
+              <div class="absolute inset-0 bg-dark-900/80 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6 text-center">
+                <div class="space-y-4">
+                  <div class="w-12 h-12 rounded-2xl bg-primary-500 text-white flex items-center justify-center shadow-lg mx-auto transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                    <i data-lucide="zoom-in" class="w-6 h-6"></i>
+                  </div>
+                  <span class="inline-block text-[9px] font-bold uppercase tracking-widest text-primary-500 bg-primary-500/10 px-2 py-0.5 rounded-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">${project.category}</span>
+                  <h4 class="text-sm font-extrabold text-white leading-tight transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100">${project.title}</h4>
+                </div>
+              </div>
+            </div>
+          `;
+          
+          // Trigger lightbox on click
+          card.addEventListener("click", () => {
+            // Find correct index in the currently filtered array
+            const filterIdx = filteredProjects.findIndex(p => p.title === project.title);
+            openLightbox(filterIdx);
+          });
+
+          galleryContainer.appendChild(card);
+        });
+
+        // Re-initialize Lucide Icons for new DOM elements
+        lucide.createIcons();
+      }
+
+      // FILTER ACTION BUTTONS
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      filterBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          // Update active button state
+          filterBtns.forEach(b => b.className = "filter-btn px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 text-slate-400 hover:text-white");
+          btn.className = "filter-btn px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-primary-500 text-white shadow-md";
+          
+          activeFilter = btn.getAttribute("data-filter");
+          
+          if (activeFilter === "all") {
+            filteredProjects = [...projectsData];
+          } else {
+            filteredProjects = projectsData.filter(p => p.category === activeFilter);
+          }
+          
+          // Render with smooth animation transition
+          galleryContainer.style.opacity = 0;
+          setTimeout(() => {
+            renderGallery(filteredProjects);
+            galleryContainer.style.opacity = 1;
+          }, 200);
+        });
+      });
+
+      // LIGHTBOX LOGIC
+      const lightboxModal = document.getElementById("lightbox-modal");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const lightboxTitle = document.getElementById("lightbox-title");
+      const lightboxCategory = document.getElementById("lightbox-category");
+      const lightboxDesc = document.getElementById("lightbox-desc");
+      const lightboxIndex = document.getElementById("lightbox-index");
+      
+      const lightboxClose = document.getElementById("lightbox-close");
+      const lightboxBgClick = document.getElementById("lightbox-bg-click");
+      const lightboxPrev = document.getElementById("lightbox-prev");
+      const lightboxNext = document.getElementById("lightbox-next");
+
+      function openLightbox(index) {
+        if (index < 0 || index >= filteredProjects.length) return;
+        currentLightboxIndex = index;
+        updateLightboxContent();
+        
+        lightboxModal.classList.remove("hidden");
+        document.body.classList.add("overflow-hidden");
+        
+        setTimeout(() => {
+          lightboxModal.classList.add("opacity-100");
+          lightboxModal.classList.remove("opacity-0");
+        }, 10);
+      }
+
+      function closeLightbox() {
+        lightboxModal.classList.add("opacity-0");
+        lightboxModal.classList.remove("opacity-100");
+        
+        setTimeout(() => {
+          lightboxModal.classList.add("hidden");
+          document.body.classList.remove("overflow-hidden");
+        }, 300);
+      }
+
+      function updateLightboxContent() {
+        const proj = filteredProjects[currentLightboxIndex];
+        
+        // Slide image out/in for smooth feel
+        lightboxImg.style.opacity = 0.5;
+        lightboxImg.style.transform = "scale(0.98)";
+        
+        setTimeout(() => {
+          lightboxImg.src = proj.image;
+          lightboxImg.alt = proj.title;
+          
+          lightboxTitle.textContent = proj.title;
+          lightboxCategory.textContent = proj.category;
+          lightboxDesc.textContent = proj.description;
+          lightboxIndex.textContent = `${currentLightboxIndex + 1} / ${filteredProjects.length}`;
+          
+          // Adjust category badge color dynamically
+          if (proj.category === "Poster Design") {
+            lightboxCategory.className = "text-[10px] font-bold uppercase tracking-widest text-primary-500 bg-primary-500/10 px-2.5 py-1 rounded-md";
+          } else if (proj.category === "Social Media") {
+            lightboxCategory.className = "text-[10px] font-bold uppercase tracking-widest text-secondary-500 bg-secondary-500/10 px-2.5 py-1 rounded-md";
+          } else {
+            lightboxCategory.className = "text-[10px] font-bold uppercase tracking-widest text-accent-500 bg-accent-500/10 px-2.5 py-1 rounded-md";
+          }
+
+          lightboxImg.style.opacity = 1;
+          lightboxImg.style.transform = "scale(1)";
+        }, 100);
+      }
+
+      function showPrev() {
+        if (filteredProjects.length <= 1) return;
+        currentLightboxIndex = (currentLightboxIndex - 1 + filteredProjects.length) % filteredProjects.length;
+        updateLightboxContent();
+      }
+
+      function showNext() {
+        if (filteredProjects.length <= 1) return;
+        currentLightboxIndex = (currentLightboxIndex + 1) % filteredProjects.length;
+        updateLightboxContent();
+      }
+
+      // Lightbox Listeners
+      lightboxClose.addEventListener("click", closeLightbox);
+      lightboxBgClick.addEventListener("click", closeLightbox);
+      lightboxPrev.addEventListener("click", showPrev);
+      lightboxNext.addEventListener("click", showNext);
+
+      // Keyboard Controls
+      document.addEventListener("keydown", (e) => {
+        if (lightboxModal.classList.contains("hidden")) return;
+        
+        if (e.key === "Escape") {
+          closeLightbox();
+        } else if (e.key === "ArrowLeft") {
+          showPrev();
+        } else if (e.key === "ArrowRight") {
+          showNext();
+        }
+      });
+
+      // DEEP LINKING SUPPORT FROM INDEX PAGE
+      const urlParams = new URLSearchParams(window.location.search);
+      const projectParam = urlParams.get('project');
+      if (projectParam) {
+        // Find index of project in projectsData
+        const pIdx = projectsData.findIndex(p => p.title.toLowerCase() === projectParam.toLowerCase());
+        if (pIdx !== -1) {
+          // Open lightbox with index in the 'all' list
+          filteredProjects = [...projectsData];
+          openLightbox(pIdx);
+        }
+      }
+    });
+  </script>
+</body>
+</html>
