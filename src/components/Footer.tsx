@@ -46,7 +46,7 @@ export default function Footer() {
               <div className="flex flex-wrap md:justify-end gap-3">
                 {/* LinkedIn */}
                 <a
-                  href="https://www.linkedin.com/in/md-hasnat-sabbir-biplob"
+                  href="https://www.linkedin.com/in/hasnatsabbirr"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-xl bg-slate-800/80 hover:bg-primary-500 hover:text-white border border-slate-700 flex items-center justify-center text-slate-300 transition-all duration-300"
@@ -58,7 +58,7 @@ export default function Footer() {
                 </a>
                 {/* Facebook */}
                 <a
-                  href="https://www.facebook.com/md.hasnatsabbir"
+                  href="https://www.facebook.com/share/18z5RcxRHW/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-xl bg-slate-800/80 hover:bg-blue-600 hover:text-white border border-slate-700 flex items-center justify-center text-slate-300 transition-all duration-300"
@@ -70,7 +70,7 @@ export default function Footer() {
                 </a>
                 {/* Email */}
                 <a
-                  href="mailto:sabbirbd11@gmail.com"
+                  href="mailto:hasnatsabbir26@gmail.com"
                   className="w-10 h-10 rounded-xl bg-slate-800/80 hover:bg-secondary-500 hover:text-white border border-slate-700 flex items-center justify-center text-slate-300 transition-all duration-300"
                   aria-label="Email"
                 >

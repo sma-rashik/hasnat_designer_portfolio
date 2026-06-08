@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   description: "Professional Graphic Designer Portfolio showcasing poster design, branding projects, social media graphics, event promotions, and creative visual solutions.",
   keywords: "Graphic Designer, Hasnat Sabbir, Md. Hasnat Sabbir Biplob, Poster Design, Social Media Design, Event Branding, Bangladesh, Chattogram, EEE",
   authors: [{ name: "Md. Hasnat Sabbir Biplob" }],
+  icons: {
+    icon: "/assets/optimized/hasnat_sabbir.webp",
+  },
 };
 
 export default function RootLayout({
